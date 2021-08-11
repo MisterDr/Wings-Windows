@@ -1,0 +1,79 @@
+debug: false
+app_name: Pterodactyl
+uuid: 666577a5-15af-4ad7-ab5e-20ec6b008ac8
+token_id: wiZMc7uGati2orrh
+token: 6ihsSccAGjXHOwLlYNggvmC1IJLJCIgKOwJgQHdaeOGcnMXB7WUDVhAMsPwcxB7j
+api:
+  host: 0.0.0.0
+  port: 8080
+  ssl:
+    enabled: true
+    cert: .\helsinki.machinezdesign.com\fullchain.pem
+    key: .\helsinki.machinezdesign.com\privkey.pem
+  disable_remote_download: false
+  upload_limit: 100
+system:
+  root_directory: c:\var\lib\pterodactyl
+  log_directory: c:\var\log\pterodactyl
+  data: C:\var\lib\pterodactyl\volumes
+  archive_directory: c:\var\lib\pterodactyl\archives
+  backup_directory: c:\var\lib\pterodactyl\backups
+  username: pterodactyl
+  timezone: UTC
+  user:
+    uid: 999
+    gid: 999
+  disk_check_interval: 150
+  check_permissions_on_boot: true
+  enable_log_rotate: true
+  websocket_log_count: 150
+  sftp:
+    bind_address: 0.0.0.0
+    bind_port: 2022
+    read_only: false
+  crash_detection:
+    detect_clean_exit_as_crash: true
+    timeout: 60
+  backups:
+    write_limit: 0
+  transfers:
+    download_limit: 0
+docker:
+  network:
+    interface: 172.18.0.1
+    dns:
+    - 1.1.1.1
+    - 1.0.0.1
+    name: pterodactyl_nw
+    ispn: false
+    driver: bridge
+    network_mode: pterodactyl_nw
+    is_internal: false
+    enable_icc: true
+    interfaces:
+      v4:
+        subnet: 172.18.0.0/16
+        gateway: 172.18.0.1
+      v6:
+        subnet: fdba:17c8:6c94::/64
+        gateway: fdba:17c8:6c94::1011
+  domainname: ""
+  registries: {}
+  tmpfs_size: 100
+  container_pid_limit: 512
+  installer_limits:
+    memory: 1024
+    cpu: 100
+throttles:
+  enabled: true
+  lines: 2000
+  maximum_trigger_count: 5
+  line_reset_interval: 100
+  decay_interval: 10000
+  stop_grace_period: 15
+remote: https://panel.official-instructions.com
+remote_query:
+  timeout: 30
+  boot_servers_per_page: 50
+allowed_mounts: []
+allowed_origins: []
